@@ -227,3 +227,14 @@ class TypingTest {
 
         this.renderWords();
     }
+    renderWords() {
+        this.elements.wordsContainer.innerHTML = this.words
+            .map((word, i) => {
+                let classes = ['word'];
+                if (i === this.currentWordIndex) classes.push('current');
+                if (i < this.currentWordIndex) classes.push('completed');
+                if (this.wordErrors[i]) classes.push('error');
+                return `<span class="${classes.join(' ')}">${word}</span>`;
+            })
+            .join('');
+    }
