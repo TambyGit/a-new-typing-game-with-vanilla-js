@@ -175,6 +175,7 @@ class TypingTest {
             this.updateLanguageTexts();
         });
     }
+}
 
 
 
