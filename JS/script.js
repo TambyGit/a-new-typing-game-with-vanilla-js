@@ -238,3 +238,21 @@ class TypingTest {
             })
             .join('');
     }
+    startGame() {
+        this.isActive = false;
+        this.currentWordIndex = 0;
+        this.timeLeft = parseInt(this.elements.timeLimit.value);
+        this.updateTimerDisplay(); // Réinitialise l'affichage du timer
+        this.stats = { wpm: 0, accuracy: 0, completed: 0, errors: 0 };
+        this.wordErrors = [];
+        this.generateWords();
+        this.updateStats();
+        this.elements.input.value = '';
+        this.elements.input.disabled = false;
+        this.elements.input.focus();
+        this.elements.uiContainer.classList.remove('hidden-during-test');
+        if (this.timer) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+    }
