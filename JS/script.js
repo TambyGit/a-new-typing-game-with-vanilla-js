@@ -266,3 +266,40 @@ class TypingTest {
         this.updateStats();
         this.elements.uiContainer.classList.remove('hidden-during-test');
     }
+    handleInput(e) {
+        const value = e.target.value;
+        const currentWord = this.words[this.currentWordIndex];
+        if (!this.isActive && value.length > 0) {
+            this.isActive = true;
+            this.elements.uiContainer.classList.add('hidden-during-test');
+            this.timer = setInterval(() => {
+                this.timeLeft--;
+                this.updateTimerDisplay();
+                if (this.timeLeft <= 0) this.endGame();
+            }, 1000);
+        }
+
+        if (!value.endsWith(' ')) {
+            const isError = !currentWord.startsWith(value);
+            this.wordErrors[this.currentWordIndex] = isError;
+            this.renderWords();
+            return;
+        }
+
+        const word = value.trim();
+        if (word === currentWord) {
+            this.stats.completed++;
+            this.wordErrors[this.currentWordIndex] = false;
+        } else {
+            this.stats.errors++;
+            this.wordErrors[this.currentWordIndex] = true;
+        }
+
+        this.currentWordIndex++;
+        this.elements.input.value = '';
+        this.renderWords();
+
+        if (this.currentWordIndex >= this.words.length) {
+            this.endGame();
+        }
+    }
