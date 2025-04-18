@@ -95,6 +95,141 @@ const translations = {
         errors: "Errors"
     }
 };
+class TypingTest {
+    constructor() {
+        this.words = [];
+        this.currentWordIndex = 0;
+        this.timeLeft = parseInt(document.getElementById('timeLimit').value); // Initialise avec la valeur du select
+        this.isActive = false;
+        this.currentLanguage = 'fr';
+        this.stats = {
+            wpm: 0,
+            accuracy: 0,
+            completed: 0,
+            errors: 0
+        };
+        this.timer = null;
+        this.wordErrors = [];
+
+        this.elements = {
+            wordCount: document.getElementById('wordCount'),
+            timeLimit: document.getElementById('timeLimit'),
+            difficulty: document.getElementById('difficulty'),
+            timer: document.getElementById('timer'),
+            wordsContainer: document.getElementById('words'),
+            input: document.getElementById('input'),
+            restart: document.getElementById('restart'),
+            uiContainer: document.getElementById('uiContainer'),
+            themeToggle: document.getElementById('themeToggle'),
+            settingsButton: document.getElementById('settingsButton'),
+            settingsModal: document.getElementById('settingsModal'),
+            closeSettings: document.getElementById('closeSettings'),
+            wpm: document.getElementById('wpm'),
+            accuracy: document.getElementById('accuracy'),
+            completed: document.getElementById('completed'),
+            errors: document.getElementById('errors'),
+            language: document.getElementById('language')
+        };
+
+        this.initializeEventListeners();
+        this.initializeTheme();
+        this.generateWords();
+        this.updateTimerDisplay(); // Initialise l'affichage du timer
+        this.updateStats();
+        this.updateLanguageTexts();
+    }
+    initializeEventListeners() {
+        this.elements.input.addEventListener('input', this.handleInput.bind(this));
+        this.elements.restart.addEventListener('click', this.startGame.bind(this));
+        this.elements.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
+        this.elements.settingsButton.addEventListener('click', () => {
+            this.elements.settingsModal.classList.add('active');
+        });
+        this.elements.closeSettings.addEventListener('click', () => {
+            this.elements.settingsModal.classList.remove('active');
+        });
+        this.elements.settingsModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.settingsModal) {
+                this.elements.settingsModal.classList.remove('active');
+            }
+        });
+        this.elements.wordCount.addEventListener('change', () => {
+            this.generateWords();
+            this.updateStats();
+        });
+        this.elements.difficulty.addEventListener('change', () => {
+            this.generateWords();
+            this.updateStats();
+        });
+        this.elements.timeLimit.addEventListener('change', () => {
+            this.timeLeft = parseInt(this.elements.timeLimit.value);
+            this.updateTimerDisplay();
+            if (!this.isActive) { // Reset le timer visuel si le test n'est pas en cours
+                this.elements.timer.textContent = this.timeLeft + 's';
+            }
+        });
+        this.elements.language.addEventListener('change', () => {
+            this.currentLanguage = this.elements.language.value;
+            this.generateWords();
+            this.updateStats();
+            this.updateLanguageTexts();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
