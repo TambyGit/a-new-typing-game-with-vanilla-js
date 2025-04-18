@@ -104,3 +104,4 @@ modeSelect.addEventListener("change", () => startTest());
 
 // Start the test
 startTest();
+// mety ihany le izyg
