@@ -95,6 +95,92 @@ const translations = {
         errors: "Errors"
     }
 };
+class TypingTest {
+    constructor() {
+        this.words = [];
+        this.currentWordIndex = 0;
+        this.timeLeft = parseInt(document.getElementById('timeLimit').value); // Initialise avec la valeur du select
+        this.isActive = false;
+        this.currentLanguage = 'fr';
+        this.stats = {
+            wpm: 0,
+            accuracy: 0,
+            completed: 0,
+            errors: 0
+        };
+        this.timer = null;
+        this.wordErrors = [];
+
+        this.elements = {
+            wordCount: document.getElementById('wordCount'),
+            timeLimit: document.getElementById('timeLimit'),
+            difficulty: document.getElementById('difficulty'),
+            timer: document.getElementById('timer'),
+            wordsContainer: document.getElementById('words'),
+            input: document.getElementById('input'),
+            restart: document.getElementById('restart'),
+            uiContainer: document.getElementById('uiContainer'),
+            themeToggle: document.getElementById('themeToggle'),
+            settingsButton: document.getElementById('settingsButton'),
+            settingsModal: document.getElementById('settingsModal'),
+            closeSettings: document.getElementById('closeSettings'),
+            wpm: document.getElementById('wpm'),
+            accuracy: document.getElementById('accuracy'),
+            completed: document.getElementById('completed'),
+            errors: document.getElementById('errors'),
+            language: document.getElementById('language')
+        };
+
+        this.initializeEventListeners();
+        this.initializeTheme();
+        this.generateWords();
+        this.updateTimerDisplay(); // Initialise l'affichage du timer
+        this.updateStats();
+        this.updateLanguageTexts();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
