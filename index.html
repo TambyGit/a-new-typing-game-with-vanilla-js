@@ -32,7 +32,24 @@
         <input type="text" id="input" placeholder="Commencez à taper..." autocomplete="off">
     </main>
     <div id="uiContainer">
-        
+        <div class="stats">
+            <div class="stat-box">
+              <div class="stat-label" data-i18n="wpm">MPM</div>
+              <div class="stat-value" id="wpm">0</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label" data-i18n="accuracy">Précision</div>
+              <div class="stat-value" id="accuracy">0%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label" data-i18n="completed">Mots Terminés</div>
+              <div class="stat-value" id="completed">0/30</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label" data-i18n="errors">Erreur(s)</div>
+              <div class="stat-value" id="errors">0</div>
+            </div>
+          </div>
     </div>
 
     <script src="script.js"></script>
