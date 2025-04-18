@@ -183,9 +183,6 @@ class TypingTest {
                 el.textContent = translations[lang][key];
             }
         });
-
-       
-
         const difficultySelect = this.elements.difficulty;
         difficultySelect.querySelectorAll('option').forEach(option => {
             const val = option.value;
@@ -195,6 +192,22 @@ class TypingTest {
         });
     }
 
+    initializeTheme() {
+        const isDark = localStorage.getItem('darkMode') === 'true';
+        document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        this.elements.themeToggle.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+    }
+
+    toggleTheme() {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        this.elements.themeToggle.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+        localStorage.setItem('darkMode', !isDark);
+    }
 
 
 
