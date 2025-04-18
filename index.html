@@ -14,13 +14,16 @@
 
 <body>
     <header>
-        <h1>Typing Test</h1>
-        <label for="mode">Select Mode:</label>
-        <select id="mode">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
+        <h1 data-i18n="title">Typing Test Pro</h1>
+        <div class="controls">
+          <select id="language">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+          </select>
+          <button id="settingsButton" aria-label="Paramètres" ><i class="fa-solid fa-gear"></i></button>
+          <button id="themeToggle" aria-label="Changer le thème"><i class="fa-solid fa-moon"></i></button>
+          <button id="restart" data-i18n="restart">Redémarrer</button>
+      </div>
     </header>
 
     <main>
