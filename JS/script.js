@@ -138,6 +138,55 @@ class TypingTest {
         this.updateStats();
         this.updateLanguageTexts();
     }
+    initializeEventListeners() {
+        this.elements.input.addEventListener('input', this.handleInput.bind(this));
+        this.elements.restart.addEventListener('click', this.startGame.bind(this));
+        this.elements.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
+        this.elements.settingsButton.addEventListener('click', () => {
+            this.elements.settingsModal.classList.add('active');
+        });
+        this.elements.closeSettings.addEventListener('click', () => {
+            this.elements.settingsModal.classList.remove('active');
+        });
+        this.elements.settingsModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.settingsModal) {
+                this.elements.settingsModal.classList.remove('active');
+            }
+        });
+        this.elements.wordCount.addEventListener('change', () => {
+            this.generateWords();
+            this.updateStats();
+        });
+        this.elements.difficulty.addEventListener('change', () => {
+            this.generateWords();
+            this.updateStats();
+        });
+        this.elements.timeLimit.addEventListener('change', () => {
+            this.timeLeft = parseInt(this.elements.timeLimit.value);
+            this.updateTimerDisplay();
+            if (!this.isActive) { // Reset le timer visuel si le test n'est pas en cours
+                this.elements.timer.textContent = this.timeLeft + 's';
+            }
+        });
+        this.elements.language.addEventListener('change', () => {
+            this.currentLanguage = this.elements.language.value;
+            this.generateWords();
+            this.updateStats();
+            this.updateLanguageTexts();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
