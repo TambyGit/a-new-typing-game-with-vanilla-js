@@ -1,10 +1,105 @@
-/**
- * Point culture (en Français car je suis un peu obligé): 
- * Dans ce genre de jeu, un mot equivaut a 5 caractères, y compris les espaces. 
- * La precision, c'est le pourcentage de caractères tapées correctement sur toutes les caractères tapées.
- * 
- * Sur ce... Amusez-vous bien ! 
- */
+const wordLists = {
+    fr: [
+        'rire', 'lune', 'main', 'nuit', 'rose', 'jour', 'feu', 'jeux', 'vent', 'lion', 'doux',
+        'bleu', 'plage', 'fort', 'vite', 'peur', 'joie', 'paix', 'rêve', 'mer', 'eau', 'air', 'sol',
+        'vue', 'nez', 'sel', 'mot', 'lit', 'ami', 'joue', 'bras', 'corps', 'aide', 'beau', 'maux',
+        'voix', 'gris', 'noir', 'lent', 'fou', 'dur', 'haut', 'bas', 'sac', 'amour', 'espoir',
+        'sourire', 'légende', 'père', 'faire', 'donner', 'étoile', 'arbre', 'voyage', 'montagne',
+        'océan', 'chemin', 'paysage', 'soleil', 'fantaisie', 'horizon', 'lumière', 'ombre',
+        'arc-en-ciel', 'vitesse', 'secret', 'énergie', 'créativité', 'chanson', 'bonté', 'rêverie',
+        'voyageur', 'désert', 'fleur', 'voler', 'espace', 'galaxie', 'planète', 'papillon',
+        'mélodie', 'détente', 'bonheur', 'fête', 'univers', 'champagne', 'vacances', 'aventure',
+        'neige', 'hiver', 'printemps', 'été', 'automne', 'chocolat', 'gâteau', 'miel', 'vanille',
+        'fraise', 'fraîcheur', 'vagues', 'surf', 'piscine', 'sable', 'rivière', 'parapluie',
+        'saison', 'déluge', 'cyclone', 'invisible', 'merveilleux', 'étoilé', 'lumineuse',
+        'aventureux', 'créatif', 'abondance', 'fantastique', 'universel', 'partage', 'volcanique',
+        'submergé', 'renouveau', 'explosion', 'paradis', 'mystique', 'terrible', 'cheminée',
+        'matinée', 'arcade', 'joyeuse', 'impressionnant',
+        'Circonstanciellement','Désinstitutionnaliser','Électromagnétiquement','Inconstitutionnalité','Interdépartemental','Internationnalisation',
+        'Particulièrement','Professionnellement','Révolutionnairement','Substantiellement','Systématiquement',
+        'Télécommunications','Transcontinental','Vraisemblablement',
+    ],
+    en: [
+        'dream', 'light', 'sun', 'sky', 'moon', 'star', 'wave', 'love', 'peace', 'hope',
+        'kind', 'fun', 'fast', 'slow', 'blue', 'red', 'green', 'dark', 'shine',
+        'rain', 'wind', 'fire', 'land', 'tree', 'leaf', 'bird', 'fish', 'song', 'play',
+        'sing', 'read', 'draw', 'cook', 'walk', 'talk', 'help', 'give', 'take', 'stop',
+        'open', 'close', 'push', 'pull', 'jump', 'swim', 'grow', 'know', 'live', 'here',
+        'there', 'this', 'that', 'each', 'some', 'many', 'few', 'one', 'two', 'three',
+        'four', 'five', 'first', 'last', 'now', 'then', 'soon', 'late', 'today', 'never',
+        'always', 'often', 'maybe', 'yes', 'no', 'why', 'how', 'what', 'when', 'where',
+        'who', 'big', 'small', 'tall', 'short', 'good', 'bad', 'happy', 'sad', 'cold',
+        'bright', 'sunbeam', 'freedom', 'holiday', 'journey', 'sunrise', 'evening',
+        'explore', 'skyline', 'creative', 'dreaming', 'believe', 'flowers', 'harmony',
+        'picture', 'smiling', 'writing', 'dancing', 'balance', 'awesome', 'genuine',
+        'happiest', 'natural', 'powerful', 'friendly', 'meaning', 'sunlight', 'sparkles',
+        'inspired', 'comfort', 'support', 'tranquil', 'learning', 'teacher', 'builder',
+        'mission', 'freight', 'adventure', 'sunshine', 'magnetic', 'delight',
+        'mission', 'freight', 'adventure', 'sunshine', 'magnetic', 'delight',
+        'gentle', 'wisdom', 'silence', 'precious', 'courage', 'honesty', 'passion',
+        'success', 'healthy', 'perfect', 'amazing', 'brilliant', 'glowing', 'shining',
+        'sparkling','extraordinary', 'understanding', 'unforgettable', 'communication',
+        'responsibility', 'congratulation', 'recommendation', 'environmentalist',
+        'characteristics', 'representation', 'inspirational', 'international',
+        'consciousness', 'determination', 'multiplication', 'infrastructure',
+        'transformative', 'revolutionary', 'collaboration', 'implementation',
+        'acknowledgement', 'accomplishment', 'administration', 'announcement',
+        'anthropologist', 'appreciation', 'architecturally', 'circumference',
+        'collaborations', 'comprehension', 'congratulating', 'consideration',
+        'constitutional', 'contamination', 'contemplation', 'contribution',
+        'conversational', 'decisionmaking', 'demonstrations', 'disappointment',
+        'discrimination', 'documentation', 'encouragement', 'entrepreneurial',
+        'establishment', 'exceptionality', 'extraordinaire', 'globalization',
+        'independently', 'individualism', 'informational', 'instrumentalist',
+        'internationally', 'irresponsible', 'justification', 'misunderstood',
+        'multicultural', 'neighborhoods', 'overconfidence', 'oversimplified',
+        'participation', 'perseverance', 'prequalification', 'reconsideration',
+        'representative', 'scientifically', 'self-realization', 'self-reflection',
+        'sophistication', 'spirituality', 'standardization', 'transportation',
+        'underestimated', 'unpredictable', 'unquestionable'
+    ]
+
+};
+// ici sera la traduction pour chaque langue
+const translations = {
+    fr: {
+        title: "Test de Frappe Pro",
+        language: "Langue",
+        wordCount: "Nombre de mots",
+        difficulty: "Difficulté",
+        timeLimit: "Limite de temps",
+        easy: "Facile",
+        medium: "Moyen",
+        hard: "Difficile",
+        restart: "Redémarrer",
+        close: "Fermer",
+        wpm: "WPM",
+        accuracy: "Précision",
+        completed: "Mots Terminés",
+        errors: "Erreur(s)"
+    },
+    en: {
+        title: "Typing Test Pro",
+        language: "Language",
+        wordCount: "Word count",
+        difficulty: "Difficulty",
+        timeLimit: "Time limit",
+        easy: "Easy",
+        medium: "Medium",
+        hard: "Hard",
+        restart: "Restart",
+        close: "Close",
+        wpm: "WPM",
+        accuracy: "Accuracy",
+        completed: "Completed",
+        errors: "Errors"
+    }
+};
+
+
+
+
+
 let startTime = null, previousEndTime = null;
 let currentWordIndex = 0;
 const wordsToType = [];
