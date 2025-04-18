@@ -256,3 +256,13 @@ class TypingTest {
             this.timer = null;
         }
     }
+    endGame() {
+        this.isActive = false;
+        clearInterval(this.timer);
+        this.elements.input.disabled = true;
+        const minutes = (parseInt(this.elements.timeLimit.value) - this.timeLeft) / 60;
+        this.stats.wpm = Math.round((this.stats.completed / minutes) || 0);
+        this.stats.accuracy = Math.round((this.stats.completed / (this.stats.completed + this.stats.errors)) * 100) || 0;
+        this.updateStats();
+        this.elements.uiContainer.classList.remove('hidden-during-test');
+    }
