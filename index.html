@@ -50,6 +50,38 @@
               <div class="stat-value" id="errors">0</div>
             </div>
           </div>
+
+          <!-- Modal Paramètres -->
+      <div id="settingsModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 data-i18n="settings">Paramètres</h2>
+            <button class="close-button" id="closeSettings">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="setting-group">
+              <label for="difficulty" data-i18n="difficulty">Difficulté :</label>
+              <select id="difficulty">
+                <option value="easy" data-i18n="easy">Facile</option>
+                <option value="medium" data-i18n="medium">Moyen</option>
+                <option value="hard" data-i18n="hard">Difficile</option>
+              </select>
+            </div>
+            <div class="setting-group">
+              <label for="wordCount" data-i18n="wordCount">Nombre de mots</label>
+              <input type="number" id="wordCount" value="30" min="10" max="100">
+            </div>
+            <div class="setting-group">
+              <label for="timeLimit" data-i18n="timeLimit">Limite de temps</label>
+              <select id="timeLimit">
+                <option value="30">30s</option>
+                <option value="60">1min</option>
+                <option value="120">2min</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
