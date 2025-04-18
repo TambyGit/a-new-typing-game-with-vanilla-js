@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wdth,wght@0,100.1,100..900;1,100.1,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Julee&family=Merienda:wght@300..900&family=Patua+One&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+PE+Guides&family=Righteous&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" type="x-icon" href="keyboard icon.png">
-  <title data-i18n="title">Test de Frappe Pro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Asap:ital,wdth,wght@0,100.1,100..900;1,100.1,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Julee&family=Merienda:wght@300..900&family=Patua+One&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+PE+Guides&family=Righteous&family=Sansita+Swashed:wght@300..900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="keyboard icon.png">
+    <title data-i18n="title">Test de Frappe Pro</title>
 </head>
 
 <body>
-    <header>
-        <h1 data-i18n="title">Typing Test Pro</h1>
-        <div class="controls">
-          <select id="language">
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-          </select>
-          <button id="settingsButton" aria-label="Paramètres" ><i class="fa-solid fa-gear"></i></button>
-          <button id="themeToggle" aria-label="Changer le thème"><i class="fa-solid fa-moon"></i></button>
-          <button id="restart" data-i18n="restart">Redémarrer</button>
-      </div>
-    </header>
+    <div class="container">
 
-    <main>
-        <div class="timer" id="timer" data-i18n="timer">0s</div>
-        <div class="words-container" id="words"></div>
-        <input type="text" id="input" placeholder="Commencez à taper..." autocomplete="off">
-    </main>
-    <div id="uiContainer">
-        <div class="stats">
-            <div class="stat-box">
-              <div class="stat-label" data-i18n="wpm">MPM</div>
-              <div class="stat-value" id="wpm">0</div>
+        <header>
+            <h1 data-i18n="title">Typing Test Pro</h1>
+            <div class="controls">
+                <select id="language">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                </select>
+                <button id="settingsButton" aria-label="Paramètres"><i class="fa-solid fa-gear"></i></button>
+                <button id="themeToggle" aria-label="Changer le thème"><i class="fa-solid fa-moon"></i></button>
+                <button id="restart" data-i18n="restart">Redémarrer</button>
             </div>
-            <div class="stat-box">
-              <div class="stat-label" data-i18n="accuracy">Précision</div>
-              <div class="stat-value" id="accuracy">0%</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-label" data-i18n="completed">Mots Terminés</div>
-              <div class="stat-value" id="completed">0/30</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-label" data-i18n="errors">Erreur(s)</div>
-              <div class="stat-value" id="errors">0</div>
-            </div>
-          </div>
+        </header>
 
-          <!-- Modal Paramètres -->
-      <div id="settingsModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 data-i18n="settings">Paramètres</h2>
-            <button class="close-button" id="closeSettings">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="setting-group">
-              <label for="difficulty" data-i18n="difficulty">Difficulté :</label>
-              <select id="difficulty">
-                <option value="easy" data-i18n="easy">Facile</option>
-                <option value="medium" data-i18n="medium">Moyen</option>
-                <option value="hard" data-i18n="hard">Difficile</option>
-              </select>
+        <main>
+            <div class="timer" id="timer" data-i18n="timer">0s</div>
+            <div class="words-container" id="words"></div>
+            <input type="text" id="input" placeholder="Commencez à taper..." autocomplete="off">
+        </main>
+        <div id="uiContainer">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-label" data-i18n="wpm">MPM</div>
+                    <div class="stat-value" id="wpm">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" data-i18n="accuracy">Précision</div>
+                    <div class="stat-value" id="accuracy">0%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" data-i18n="completed">Mots Terminés</div>
+                    <div class="stat-value" id="completed">0/30</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" data-i18n="errors">Erreur(s)</div>
+                    <div class="stat-value" id="errors">0</div>
+                </div>
             </div>
-            <div class="setting-group">
-              <label for="wordCount" data-i18n="wordCount">Nombre de mots</label>
-              <input type="number" id="wordCount" value="30" min="10" max="100">
+
+            <!-- Modal Paramètres -->
+            <div id="settingsModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 data-i18n="settings">Paramètres</h2>
+                        <button class="close-button" id="closeSettings">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="setting-group">
+                            <label for="difficulty" data-i18n="difficulty">Difficulté :</label>
+                            <select id="difficulty">
+                                <option value="easy" data-i18n="easy">Facile</option>
+                                <option value="medium" data-i18n="medium">Moyen</option>
+                                <option value="hard" data-i18n="hard">Difficile</option>
+                            </select>
+                        </div>
+                        <div class="setting-group">
+                            <label for="wordCount" data-i18n="wordCount">Nombre de mots</label>
+                            <input type="number" id="wordCount" value="30" min="10" max="100">
+                        </div>
+                        <div class="setting-group">
+                            <label for="timeLimit" data-i18n="timeLimit">Limite de temps</label>
+                            <select id="timeLimit">
+                                <option value="30">30s</option>
+                                <option value="60">1min</option>
+                                <option value="120">2min</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="setting-group">
-              <label for="timeLimit" data-i18n="timeLimit">Limite de temps</label>
-              <select id="timeLimit">
-                <option value="30">30s</option>
-                <option value="60">1min</option>
-                <option value="120">2min</option>
-              </select>
-            </div>
-          </div>
+
+            <footer>
+                <p>Test de Frappe Pro</p>
+                <p>Design by Olivier Richard & Tamby Nandrianina. Tous droits réservés.</p>
+            </footer>
         </div>
-      </div>
-
-      <footer>
-        <p>Test de Frappe Pro</p>
-        <p>Design by Olivier Richard & Tamby Nandrianina. Tous droits réservés.</p>
-      </footer>
     </div>
 
     <script src="script.js"></script>
