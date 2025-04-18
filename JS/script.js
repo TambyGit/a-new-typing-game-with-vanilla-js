@@ -183,6 +183,9 @@ class TypingTest {
                 el.textContent = translations[lang][key];
             }
         });
+
+       
+
         const difficultySelect = this.elements.difficulty;
         difficultySelect.querySelectorAll('option').forEach(option => {
             const val = option.value;
@@ -191,7 +194,6 @@ class TypingTest {
             }
         });
     }
-
 
 
 
