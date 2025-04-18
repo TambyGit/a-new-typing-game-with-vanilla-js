@@ -303,3 +303,18 @@ class TypingTest {
             this.endGame();
         }
     }
+    updateStats() {
+        this.elements.wpm.textContent = this.stats.wpm;
+        this.elements.accuracy.textContent = this.stats.accuracy + '%';
+        this.elements.completed.textContent = `${this.stats.completed}/${this.words.length}`;
+        this.elements.errors.textContent = this.stats.errors;
+    }
+
+    updateTimerDisplay() {
+        this.elements.timer.textContent = this.timeLeft + 's';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new TypingTest();
+});
