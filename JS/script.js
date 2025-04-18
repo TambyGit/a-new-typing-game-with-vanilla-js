@@ -175,6 +175,22 @@ class TypingTest {
             this.updateLanguageTexts();
         });
     }
+    updateLanguageTexts() {
+        const lang = this.currentLanguage;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        const difficultySelect = this.elements.difficulty;
+        difficultySelect.querySelectorAll('option').forEach(option => {
+            const val = option.value;
+            if (translations[lang][val]) {
+                option.textContent = translations[lang][val];
+            }
+        });
+    }
 
 
 
